@@ -132,4 +132,26 @@ dict.get(0) -> None
 ```
 2. 颜色grb颜色数值越高,颜色越亮,在绘制按钮的时候,通过颜色由浅入深形成立体感
 
+3. 判断某位置是否可以到达,R
+``` Python
+Rect.collidelist()
+检测该 Rect 对象是否与列表中的任何一个矩形有交集。
+Rect.collidelist(list) -> index
+返回值是第 1 个有相交的矩形所在列表中的索引号（如果有的话），否则返回 -1。
+```
+ 
+
+3. 迭代器与生产器
+
+
+4. 透明度分析
+Pygame支持三种类型的透明度分析：colorkeys，surface alphas 和 pixel alphas
+- colorkeys 指定一种颜色,让它变为透明
+- surface alphas 给整体设置一个透明度
+- pixel alphas 给每个像素点设置一个alphas通道,让图片支持透明通道
+convert() 转换的图片可以支持colorkeys和surface
+convert_alpha() 转换后的图片可以支持 pixel alphas
+
+5. Surface.get_at(x,y) -> Color:
+> 返回该点（x, y）下的Color对象 --> 可用于设置透明颜色值
 
