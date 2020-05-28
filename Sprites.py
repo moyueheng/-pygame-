@@ -3,11 +3,14 @@ import pygame
 from config import Config
 
 
-'''
-Function:
-    推箱子的人精灵类
-'''
+
 class pusherSprite(pygame.sprite.Sprite):
+    """" 推箱子的精灵类
+    需要完成移动和将自己画出来的功能
+    Attributes:
+    参数:   col: int 保存自己本身在屏幕的位置,及行号和列号
+            row: int 
+    """
     def __init__(self, col, row):
         pygame.sprite.Sprite.__init__(self)
         self.image_path = os.path.join(Config.get('resources_path'), Config.get('imgfolder'), 'player.png')
@@ -50,6 +53,12 @@ Function:
     游戏元素精灵类
 '''
 class elementSprite(pygame.sprite.Sprite):
+    """" 游戏元素精灵类
+    在对应的位置将自己画出来,移动
+    Attributes:
+    参数: sprite_name: str 精灵种类
+          col :int cow: int 精灵自身的位置
+    """
     def __init__(self, sprite_name, col, row):
         pygame.sprite.Sprite.__init__(self)
         # 导入box.png/target.png/wall.png

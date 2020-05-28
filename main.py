@@ -27,7 +27,6 @@ def quitGame():
 
 """游戏地图元素类"""
 
-
 class GameMap():
     '''游戏地图'''
 
@@ -50,7 +49,7 @@ class GameMap():
         elif elem_type == 'target':
             self.targets.append(elementSprite('target.png', col, row))
         elif elem_type == 'tree':
-            self.targets.append(elementSprite('tree.png', col, row))
+            self.trees.append(elementSprite('tree.png', col, row))
 
     '''画游戏地图元素'''
 
@@ -59,7 +58,6 @@ class GameMap():
             elem.draw(screen)
 
     '''游戏元素迭代器'''  # 迭代器是特殊的生成器
-
     def elemsIter(self):
         for elem in chain(self.targets, self.walls, self.boxes, self.trees):
             yield elem  # yield到一个迭代器器里面去
@@ -311,9 +309,9 @@ def startInterface(screen):
     screen.fill(Config.get('bg_color'))
     clock = pygame.time.Clock()
     while True:
-        button_0 = BUTTON(screen, (20, 50), '19级自主性发展项目', font_size = 40, bwidth=450)  # TODO 观察button的实现
+        button_0 = BUTTON(screen, (20, 50), '19级自主性发展项目', font_size = 40, bwidth=450)  # 
         button_1 = BUTTON(screen, (95, 200), '开始游戏')  
-        button_2 = BUTTON(screen, (95, 355), '退出游戏')
+        button_2 = BUTTON(screen, (95, 345), '退出游戏')
         # 事件处理
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -329,10 +327,7 @@ def startInterface(screen):
 
 
 
-
-
-"""关卡切换界面"""  # TODO
-
+"""关卡切换界面"""  # 
 def switchInterface(screen):
     screen.fill(Config.get('bg_color'))
     clock = pygame.time.Clock()
@@ -360,22 +355,23 @@ def endInterface(screen):
     clock = pygame.time.Clock()
     font_path = os.path.join(Config.get(
         'resources_path'), Config.get('fontfolder'), 'simkai.ttf')
-    text = '不愧是你,你必定会成为工商之光的!'
-    font = pygame.font.Font(font_path, 30)
-    text_render = font.render(text, 1, (255, 255, 255))
+    text_1 = '不愧是你,你必定会成为'
+    text_2 = '工商之光!!!'
+    font = pygame.font.Font(font_path, 40)
+    text1_render = font.render(text_1, 1, (255, 255, 255))
+    text2_render = font.render(text_2, 1, (255, 255, 255))
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-        screen.blit(text_render, (120, 200))
+        screen.blit(text1_render, (50, 170))
+        screen.blit(text2_render, (130, 270))
         clock.tick(60)
         pygame.display.update()
 
 
 """主函数"""
-
-
 def main():
     pygame.init()  # pygame初始化
     pygame.mixer.init()  # 音效初始化
@@ -385,7 +381,7 @@ def main():
     # 音效
     pygame.mixer.init()  # 初始化音效
     audio_path = os.path.join(Config.get(
-        'resources_path'), Config.get('audiofolder'), 'EineLiebe.mp3')
+        'resources_path'), Config.get('audiofolder'), 'bg.mp3')
     pygame.mixer.music.load(audio_path)
     pygame.mixer.music.set_volume(0.4)
     pygame.mixer.music.play(-1)
