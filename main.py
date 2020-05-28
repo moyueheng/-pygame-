@@ -207,13 +207,19 @@ def runGame(screen, game_level):
             if event.type == pygame.QUIT:
                 quitGame()
             elif event.type == pygame.KEYDOWN:
+                # 向左移动
                 if event.key == pygame.K_LEFT:
+                    # 先模拟向左移动得到向左移动的坐标
                     next_pos = game_interface.player.move('left', is_test=True)
+                    # 判断是否可以真的移动过去
                     if game_interface.game_map.isValidPos(*next_pos):
                         game_interface.player.move('left')
                     else:
+                        # 获得一个箱子对象
                         box = game_interface.game_map.getBox(*next_pos)
+                        # 如果能获得箱子对象
                         if box:
+                            # 模拟运动如果可以达到则运动
                             next_pos = box.move('left', is_test=True)
                             if game_interface.game_map.isValidPos(*next_pos):
                                 game_interface.player.move('left')

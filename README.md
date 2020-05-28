@@ -876,3 +876,8 @@ convert_alpha() 转换后的图片可以支持 pixel alphas
 5. Surface.get_at(x,y) -> Color:
 
 > 返回该点（x, y）下的Color对象 --> 可用于设置透明颜色值
+
+6. python拆包
+![ ](https://s1.ax1x.com/2020/05/28/tZs4Sg.png)
+
+字典拆包直接把key拆出来了。val没有
