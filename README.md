@@ -27,6 +27,10 @@ run "python main.py"
 
 # 细节
 
+## 类之间的关系
+[![tZBLFO.png](https://s1.ax1x.com/2020/05/28/tZBLFO.png)](https://imgchr.com/i/tZBLFO)
+
+
 ## Step1：定义精灵类
 由于游戏涉及到碰撞检测，所以我们先来定义一些游戏精灵类，包括推箱子的人、箱子、墙和目标位置指示标记。
 首先我们来定义一下推箱子的人这个精灵类：
